@@ -1,0 +1,7 @@
+Get-ADUser -Filter *
+
+Get-ADGroupMember Employees
+
+Get-ADGroupMember Finance
+
+Add-ADGroupMember -Identity Employees -Members m.mathis
