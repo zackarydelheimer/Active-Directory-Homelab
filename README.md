@@ -46,7 +46,7 @@ The lab includes:
 
 ## Organizational Structure
 
-The Active Directory environment was organized using a dedicated HypotheticalCorp Organizational Unit structure.
+The Active Directory environment was organized using a dedicated Organizational Unit structure.
 
 ### Organizational Units
 
