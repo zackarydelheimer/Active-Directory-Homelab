@@ -2,16 +2,16 @@
 
 ## Project Overview
 
-This project demonstrates the deployment and administration of a Windows Server Active Directory environment in VMware Workstation.
+This project demonstrates the deployment and administration of a Windows Server 2022 Active Directory environment in VMware Workstation.
 
-The environment includes:
+The lab includes:
 
 - Windows Server 2022 Domain Controller
 - Active Directory Domain Services (AD DS)
 - DNS Services
 - Organizational Units (OUs)
-- Security Groups
-- User Management
+- User and Group Management
+- Security Group Administration
 - Shared Folder Permissions
 - Domain-Joined Windows 11 Client
 - PowerShell Administration
@@ -36,22 +36,38 @@ The environment includes:
 
 - Hostname: CLIENT01
 - Operating System: Windows 11 Pro
-- Joined to the fresno.local domain
+- Domain Joined: fresno.local
+
+### Server Configuration
+
+![DC01 Server Manager](screenshots/Server-Manager-DC01.png)
 
 ---
 
 ## Organizational Structure
 
-HypotheticalCorp
+The Active Directory environment was organized using a dedicated HypotheticalCorp Organizational Unit structure.
+
+### Organizational Units
 
 - Users
 - Groups
 - Computers
 - IT
 
+### Users OU
+
+![Users OU](screenshots/ADUC-Users.png)
+
+### Groups OU
+
+![Groups OU](screenshots/ADUC-Groups.png)
+
 ---
 
-## User Accounts Created
+## User Account Management
+
+Created and managed multiple domain user accounts:
 
 - John Smith
 - Martha Jones
@@ -60,9 +76,15 @@ HypotheticalCorp
 - MiKayla Mathis
 - IT Admin
 
+### User Accounts
+
+![User Accounts](screenshots/ADUC-Users.png)
+
 ---
 
 ## Security Groups
+
+Three security groups were created to support role-based access control.
 
 ### Employees
 
@@ -86,6 +108,34 @@ Members:
 
 - IT Admin
 
+### Security Groups Created
+
+![Security Groups](screenshots/ADUC-Groups.png)
+
+### Finance Group Membership
+
+![Finance Group Members](screenshots/Finance-Group-Members.png)
+
+### Desii Drew Group Membership
+
+Demonstrates membership in both Employees and Finance groups.
+
+![Desii Drew Membership](screenshots/Desii-Group-Membership.png)
+
+### Aaron Wilkes Group Membership
+
+Demonstrates membership in the Employees group.
+
+![Aaron Membership](screenshots/Aaron-Group-Membership.png)
+
+---
+
+## Domain Join Validation
+
+CLIENT01 was successfully joined to the Active Directory domain and authenticated using a domain user account.
+
+![Domain Login Verification](screenshots/Aaron-Login-Verification.png)
+
 ---
 
 ## Shared Resources
@@ -94,7 +144,7 @@ Members:
 
 Purpose:
 
-Accessible to all Employees group members.
+Accessible to all members of the Employees group.
 
 Validation:
 
@@ -102,11 +152,15 @@ Validation:
 - Aaron Wilkes successfully accessed
 - Desii Drew successfully accessed
 
+![Public Share Validation](screenshots/Public-Share-Validation.png)
+
+---
+
 ### Finance Share
 
 Purpose:
 
-Restricted to Finance group members.
+Restricted to Finance group members only.
 
 Validation:
 
@@ -114,11 +168,15 @@ Validation:
 - John Smith denied access
 - Aaron Wilkes denied access
 
+![Finance Share Validation](screenshots/Finance-Share-Validation.png)
+
 ---
 
 ## PowerShell Administration
 
-Commands used:
+PowerShell was used to automate administrative tasks and validate group membership.
+
+Example commands:
 
 ```powershell
 Get-ADUser -Filter *
@@ -127,16 +185,36 @@ Get-ADGroupMember Finance
 Add-ADGroupMember -Identity Employees -Members m.mathis
 ```
 
+### PowerShell Verification
+
+![PowerShell Employees](screenshots/PowerShell-Employees.png)
+
 ---
 
 ## Challenges Encountered
 
-During deployment, several issues were identified and resolved:
+During deployment several issues were identified and resolved:
 
-- Incorrectly configured share permissions on the CompanyShares parent folder.
-- NTFS inheritance conflicts that required restoring inherited permissions.
-- Windows 11 local account creation issues during setup that required bypassing Microsoft account enforcement.
-- File share access testing that initially produced permission errors until group membership and security settings were validated.
-- Verification of Finance group access restrictions to ensure only authorized users could access sensitive resources.
+- Incorrectly configured share permissions on the CompanyShares parent folder
+- NTFS inheritance conflicts requiring restoration of inherited permissions
+- Windows 11 local account creation issues during setup
+- File share access validation and troubleshooting
+- Verification of Finance group access restrictions
 
-These issues were resolved through troubleshooting, permissions review, Active Directory validation, and user testing.
+These issues were resolved through Active Directory troubleshooting, permissions review, PowerShell validation, and end-user testing.
+
+---
+
+## Skills Demonstrated
+
+- Active Directory Administration
+- Windows Server 2022
+- DNS Configuration
+- Organizational Unit Design
+- Security Group Management
+- NTFS Permissions
+- File Share Administration
+- PowerShell Scripting
+- Domain Join Operations
+- Windows 11 Administration
+- VMware Workstation
