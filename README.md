@@ -18,6 +18,12 @@ The environment includes:
 
 ---
 
+## Network Diagram
+
+![Network Diagram](diagrams/network-diagram.png)
+
+---
+
 ## Environment
 
 ### Domain Controller
